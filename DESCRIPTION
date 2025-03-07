@@ -1,0 +1,19 @@
+Package: scrapers
+Type: Package
+Title: Scrapers for setting up and updating data in stat-assigments
+Version: 0.1.0
+Authors@R: c(
+    person(
+      "Jane", "Doe",
+      email = "jane@example.com",
+      role = c("aut", "cre")
+    )
+  )
+Description: More about what it does (maybe more than one line).
+    Continuation lines should be indented.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    httr2 (>= 1.0.5.9000),
+RoxygenNote: 7.3.2
