@@ -7,7 +7,7 @@
 get_earthquakes(
   start_time,
   end_time = NULL,
-  minmagnitude = NULL,
+  min_magnitude = NULL,
   base_url = "https://earthquake.usgs.gov/fdsnws/event/1/query"
 )
 }
@@ -16,7 +16,7 @@ get_earthquakes(
 
 \item{end_time}{character string specifying the end date for the records in the form 'yyyy-mm-dd'}
 
-\item{minmagnitude}{numeric quantity specifying the minimum magnitude considered for a record}
+\item{min_magnitude}{numeric quantity specifying the minimum magnitude considered for a record}
 
 \item{base_url}{base url for the GET request}
 }
@@ -30,5 +30,5 @@ Downloads records of earth quakes from the USGS Earthquake Catalog
 # example code
 one_day <- get_earthquakes(start_time = "2025-03-06", end_time = "2025-03-07")
 # all documented earthquakes with a magnitude of at least 9 on the Richter scale
-nines <-  get_earthquakes(start_time = "1800-01-01", end_time = "2025-03-07", minmagnitude=9)
+nines <-  get_earthquakes(start_time = "1800-01-01", end_time = "2025-03-07", min_magnitude=9)
 }
