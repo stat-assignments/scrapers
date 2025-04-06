@@ -5,7 +5,7 @@
 \title{Get earthquake information from USGS}
 \usage{
 get_earthquakes(
-  start_time,
+  start_time = today() - 30,
   end_time = NULL,
   min_magnitude = NULL,
   base_url = "https://earthquake.usgs.gov/fdsnws/event/1/query"
@@ -21,14 +21,16 @@ get_earthquakes(
 \item{base_url}{base url for the GET request}
 }
 \value{
-data frame of earth quake records. Detailed information on each of the variables can be found as part of the [USGS ComCat Documentation](https://earthquake.usgs.gov/data/comcat/index.php)
+data frame of earth quake records. Detailed information on each of the variables can be found as part of the [USGS ComCat Documentation](https://earthquake.usgs.gov/data/comcat/index.php).
+By default, data for the last 30 days is requested from the archive. This is similar data to what USGS provides as `All Earthquakes` for the past 30 days in their spreadsheet/csv feed at https://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php
 }
 \description{
 Downloads records of earth quakes from the USGS Earthquake Catalog
 }
 \examples{
 # example code
-one_day <- get_earthquakes(start_time = "2025-03-06", end_time = "2025-03-07")
+library(lubridate)
+todays <- get_earthquakes(start_time = today()-1, end_time = today())
 # all documented earthquakes with a magnitude of at least 9 on the Richter scale
-nines <-  get_earthquakes(start_time = "1800-01-01", end_time = "2025-03-07", min_magnitude=9)
+nines <-  get_earthquakes(start_time = "1800-01-01", end_time = today(), min_magnitude=9)
 }
