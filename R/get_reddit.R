@@ -35,7 +35,9 @@ get_user_comments <- function(user_name, limit = 10L, after = NULL, base_url="ht
 
   req <- req |>
     req_headers("Accept"="application/json") |>
-    req_url_query(`limit`=limit)
+    req_url_query(`limit`=limit, raw_json=1)
+
+
 
   if (!is.null(after)) {
     req <- req |> req_url_query(`after`=after)

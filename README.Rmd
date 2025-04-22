@@ -20,7 +20,8 @@ knitr::opts_chunk$set(
 [![Codecov test coverage](https://codecov.io/gh/stat-assignments/scrapers/graph/badge.svg)](https://app.codecov.io/gh/stat-assignments/scrapers)
 <!-- badges: end -->
 
-The goal of scrapers is to ...
+The goal of scrapers is to provide functionality for an easy update of data used throughout the assignments in `stat-assignments`
+
 
 ## Installation
 
@@ -43,3 +44,21 @@ eq <- get_earthquakes(lubridate::today()-30, lubridate::today())
 eq %>% ggplot(aes(x = longitude, y = latitude)) + geom_point()
 ```
 
+## Usage
+
+
+```{r}
+usage <- data.frame(`function` = "get_earthquake", repo = "data-earthquakes", link="https://github.com/stat-assignments/data-earthquakes") 
+
+usage <- usage |> 
+  rbind(data.frame(
+    `function` = "get_user_comments", 
+    repo = "dplyr-reddit-poetry", 
+    link="https://github.com/stat-assignments/dplyr-reddit-poetry") ) |>
+  rbind(data.frame(
+    `function` = "get_pets", 
+    repo = "dplyr-reddit-poetry", 
+    link="https://github.com/stat-assignments/dplyr-reddit-poetry") )
+
+usage |> knitr::kable()
+```

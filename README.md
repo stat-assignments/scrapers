@@ -10,7 +10,8 @@
 coverage](https://codecov.io/gh/stat-assignments/scrapers/graph/badge.svg)](https://app.codecov.io/gh/stat-assignments/scrapers)
 <!-- badges: end -->
 
-The goal of scrapers is to …
+The goal of scrapers is to provide functionality for an easy update of
+data used throughout the assignments in `stat-assignments`
 
 ## Installation
 
@@ -30,8 +31,8 @@ library(tidyverse, quietly = TRUE)
 #> ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 #> ✔ dplyr     1.1.4     ✔ readr     2.1.5
 #> ✔ forcats   1.0.0     ✔ stringr   1.5.1
-#> ✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-#> ✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+#> ✔ ggplot2   3.5.2     ✔ tibble    3.2.1
+#> ✔ lubridate 1.9.4     ✔ tidyr     1.3.1
 #> ✔ purrr     1.0.4     
 #> ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 #> ✖ dplyr::filter() masks stats::filter()
@@ -44,3 +45,21 @@ eq %>% ggplot(aes(x = longitude, y = latitude)) + geom_point()
 ```
 
 <img src="man/figures/README-example-1.png" width="100%" />
+
+## Usage
+
+``` r
+usage <- data.frame(`function` = "get_earthquake", repo = "data-earthquakes", link="https://github.com/stat-assignments/data-earthquakes") 
+
+usage <- usage |> rbind(data.frame(
+  `function` = "get_earthquake", 
+  repo = "data-earthquakes", 
+  link="https://github.com/stat-assignments/data-earthquakes") )
+
+usage |> knitr::kable()
+```
+
+| function. | repo | link |
+|:---|:---|:---|
+| get_earthquake | data-earthquakes | <https://github.com/stat-assignments/data-earthquakes> |
+| get_earthquake | data-earthquakes | <https://github.com/stat-assignments/data-earthquakes> |
